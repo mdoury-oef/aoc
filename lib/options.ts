@@ -10,10 +10,12 @@ export const { values: options } = parseArgs({
     day: {
       type: "string",
       short: "d",
+      default: new Date().getDate().toString(),
     },
     puzzle: {
       type: "string",
       short: "p",
+      default: "1",
     },
   },
   args: process.argv.slice(2),
