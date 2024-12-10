@@ -1,7 +1,5 @@
 import { readFile } from "node:fs/promises";
-import { join } from "node:path";
-import { fileURLToPath } from "node:url";
-import { options } from "./options";
+import { dataPath } from "./path/data";
 
 type LoadOptions<TOut> = {
   parse?(value: string, index: number, array: string[]): TOut;
@@ -17,12 +15,7 @@ export async function load<TOut = string>({
   parse = identity,
   separator = /\s/,
 }: LoadOptions<TOut> = {}) {
-  const dirname = fileURLToPath(new URL(".", import.meta.url));
-  const path = join(
-    dirname,
-    `../data/${options.year}/${options.day}.${options.puzzle}.txt`,
-  );
-  const file = await readFile(path, { encoding: "utf8" });
+  const file = await readFile(dataPath, { encoding: "utf8" });
   const lines = file.split("\n");
   const entries = lines
     .slice(0, lines.length - 1)

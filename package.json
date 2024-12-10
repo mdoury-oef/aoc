@@ -5,6 +5,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "new": "tsx ./lib/new.ts",
     "solve": "tsx ./lib/solve.ts",
     "type-check": "tsc --noEmit"
   },
