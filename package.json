@@ -5,17 +5,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "new": "tsx ./lib/new.ts",
-    "solve": "tsx ./lib/solve.ts",
+    "new": "bun ./lib/new.ts",
+    "solve": "bun ./lib/solve.ts",
     "type-check": "tsc --noEmit"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "packageManager": "pnpm@9.10.0+sha512.73a29afa36a0d092ece5271de5177ecbf8318d454ecd701343131b8ebc0c1a91c487da46ab77c8e596d6acf1461e3594ced4becedf8921b074fbd8653ed7051c",
   "devDependencies": {
     "@types/node": "^22.10.1",
-    "tsx": "^4.19.2",
+    "bun": "^1.1.38",
     "typescript": "^5.7.2"
   },
   "dependencies": {
