@@ -19,5 +19,6 @@
   },
   "dependencies": {
     "yoctocolors": "^2.1.1"
-  }
+  },
+  "packageManager": "bun@1.1.38"
 }
