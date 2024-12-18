@@ -1,4 +1,4 @@
-import { parseArgs } from "util";
+import { parseArgs } from "node:util";
 
 export const { values: options } = parseArgs({
   options: {
@@ -18,6 +18,6 @@ export const { values: options } = parseArgs({
       default: "1",
     },
   },
-  args: process.argv.slice(2),
+  args: Bun.argv.slice(2),
   strict: true,
 });

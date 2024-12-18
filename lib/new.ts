@@ -1,16 +1,18 @@
 import { puzzlePath } from "./path/puzzle";
 import { dataPath } from "./path/data";
-import { writeFile } from "fs/promises";
-import { existsSync } from "fs";
 
-if (!existsSync(dataPath)) {
-  await writeFile(dataPath, "");
-} else {
+const dataFile = Bun.file(dataPath);
+
+if (await dataFile.exists()) {
   console.warn(`File "${dataPath}" already exists.`);
+} else {
+  await Bun.write(dataFile, "");
 }
 
-if (!existsSync(puzzlePath)) {
-  await writeFile(puzzlePath, "");
-} else {
+const puzzleFile = Bun.file(puzzlePath);
+
+if (await puzzleFile.exists()) {
   console.warn(`File "${puzzlePath}" already exists.`);
+} else {
+  await Bun.write(puzzleFile, "");
 }

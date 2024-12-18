@@ -1,4 +1,3 @@
-import { readFile } from "node:fs/promises";
 import { dataPath } from "./path/data";
 
 type LoadOptions<TOut> = {
@@ -17,7 +16,7 @@ export async function load<TOut = string>({
   separator = /\s/,
   lineSeparator = /\n/,
 }: LoadOptions<TOut> = {}) {
-  const file = await readFile(dataPath, { encoding: "utf8" });
+  const file = await Bun.file(dataPath).text();
   let lines = file.split(lineSeparator);
   if (!lines[lines.length - 1]) {
     lines = lines.slice(0, -1);
